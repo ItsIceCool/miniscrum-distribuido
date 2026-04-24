@@ -1,18 +1,18 @@
 services:
-gateway:
-  build: ./gateway
-  expose:
-    - "3000"
-  environment:
-    PORT: 3000
-    PHP_API_URL: http://php-api
-    PYTHON_ML_URL: http://python-ml:8000
-  depends_on:
-    - php-api
-    - python-ml
-  networks:
-    - default
-    - dokploy-network
+  gateway:
+    build: ./gateway
+    expose:
+      - "3000"
+    environment:
+      PORT: 3000
+      PHP_API_URL: http://php-api
+      PYTHON_ML_URL: http://python-ml:8000
+    depends_on:
+      - php-api
+      - python-ml
+    networks:
+      - default
+      - dokploy-network
 
   php-api:
     build: ./php-api
